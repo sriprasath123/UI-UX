@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <link rel="stylesheet" href="login.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Exo:400,700');
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Exo', sans-serif;
+        }
+
+        .area {
+            background-image: linear-gradient(to top, #accbee 0%, #e7f0fd 100%);
+            width: 100%;
+            height: 100vh;
+            position: relative;
+        }
+
+        .circles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .circles li {
+            position: absolute;
+            display: block;
+            list-style: none;
+            width: 20px;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            animation: animate 25s linear infinite;
+            bottom: -150px;
+        }
+
+        .circles li:nth-child(1) {
+            left: 25%;
+            width: 80px;
+            height: 80px;
+            animation-delay: 0s;
+            background-color: rgb(202, 58, 238);
+        }
+
+        .circles li:nth-child(2) {
+            left: 10%;
+            width: 20px;
+            height: 20px;
+            animation-delay: 2s;
+            animation-duration: 12s;
+            background-color: chartreuse;
+        }
+
+        .circles li:nth-child(3) {
+            left: 70%;
+            width: 20px;
+            height: 20px;
+            animation-delay: 4s;
+            background-color: rgb(36, 150, 226);
+        }
+
+        .circles li:nth-child(4) {
+            left: 40%;
+            width: 60px;
+            height: 60px;
+            animation-delay: 0s;
+            animation-duration: 18s;
+            background-color: rgb(226, 137, 36);
+        }
+
+        .circles li:nth-child(5) {
+            left: 65%;
+            width: 20px;
+            height: 20px;
+            animation-delay: 0s;
+            background-color: rgb(233, 112, 118);
+        }
+
+        .circles li:nth-child(6) {
+            left: 75%;
+            width: 110px;
+            height: 110px;
+            animation-delay: 3s;
+            background-color: rgb(170, 101, 235);
+        }
+
+        .circles li:nth-child(7) {
+            left: 35%;
+            width: 150px;
+            height: 150px;
+            animation-delay: 7s;
+        }
+
+        .circles li:nth-child(8) {
+            left: 50%;
+            width: 25px;
+            height: 25px;
+            animation-delay: 15s;
+            animation-duration: 45s;
+            background-color: rgb(190, 162, 38);
+        }
+
+        .circles li:nth-child(9) {
+            left: 20%;
+            width: 15px;
+            height: 15px;
+            animation-delay: 2s;
+            animation-duration: 35s;
+            background-color: rgb(226, 36, 201);
+        }
+
+        .circles li:nth-child(10) {
+            left: 85%;
+            width: 150px;
+            height: 150px;
+            animation-delay: 0s;
+            animation-duration: 11s;
+            background-color: rgb(88, 85, 81);
+        }
+
+        @keyframes animate {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+                border-radius: 0;
+            }
+
+            100% {
+                transform: translateY(-1000px) rotate(720deg);
+                opacity: 0;
+                border-radius: 50%;
+            }
+        }
+    </style>
+</head>
+
+<body class="flex items-center min-h-screen area">
+    <ul class="circles">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+
+    <div class="container mx-auto flex items-center justify-center min-h-screen">
+        <div class="w-full max-w-4xl flex rounded-lg shadow-lg bg-pink-400 bg-opacity-25">
+            <!-- Image column -->
+            <div class="hidden md:block w-1/2 p-10 border-r-4 border-black">
+                <img src="img/QR CODE.png" alt="QR Code" class="object-cover h-96 mx-auto">
+                <h4 class="text-xl text-center font-bold text-gray-800 mt-4">Today Attendance</h4>
+            </div>
+
+
+            <!-- Form column -->
+            <div class="w-full md:w-1/2 p-10 bg-white bg-opacity-30">
+                <img src="img/download-removebg-preview.png" alt="Logo" class="w-32 h-auto mx-auto mb-6">
+                <h2 class="mt-6 text-center text-3xl leading-9 font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
+                    Sign in to your account
+                </h2>
+                <form class="mt-8 space-y-6" id="login-form">
+                    <input type="hidden" name="remember" value="true">
+                    <div class="rounded-md shadow-sm">
+                        <div class="py-4">
+                            <label for="email-address" class="sr-only">Email address</label>
+                            <input id="email-address" name="email" type="email" autocomplete="email" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Email address">
+                            <span id="email-error" class="text-red-500 text-sm hidden">Please enter a valid email address.</span>
+                        </div>
+                        <div>
+                            <label for="password" class="sr-only">Password</label>
+                            <input id="password" name="password" type="password" autocomplete="current-password" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Password">
+                            <span id="password-error" class="text-red-500 text-sm hidden">Password must be numbers only.</span>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center">
+                            <a class="text-blue-600 hover:text-indigo-800" href="">Register</a>
+                        </div>
+                        <div class="text-sm">
+                            <a href="#" class="font-medium text-blue-600 hover:text-indigo-800">
+                                Forgot your password?
+                            </a>
+                        </div>
+                    </div>
+
+                    <div>
+                        <button type="submit" class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-800 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                            Sign in
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $('#login-form').on('submit', function(e) {
+                e.preventDefault();
+
+                // Clear previous error messages
+                $('#email-error').hide();
+                $('#password-error').hide();
+
+                let email = $('#email-address').val();
+                let password = $('#password').val();
+                let valid = true;
+
+                // Email validation regex
+                let emailRegex = /^[a-z0-9]+@gmail\.com$/;
+                if (!emailRegex.test(email)) {
+                    $('#email-error').show();
+                    valid = false;
+                }
+
+                // Password validation (numbers only)
+                if (!/^\d+$/.test(password)) {
+                    $('#password-error').show();
+                    valid = false;
+                }
+
+                if (valid) {
+                    // Submit the form if valid
+                    this.submit();
+                }
+            });
+
+            // Toggle password visibility
+            $('#remember-me').change(function() {
+                if ($(this).is(':checked')) {
+                    $('#password').attr('type', 'text');
+                } else {
+                    $('#password').attr('type', 'password');
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>
+
+
+<?php
+
+
+
+?>
